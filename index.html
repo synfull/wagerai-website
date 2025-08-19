@@ -107,8 +107,6 @@
             font-weight: 600;
             height: 1.2em;
             overflow: hidden;
-            border-right: 2px solid #00FF88;
-            animation: blink 1s infinite;
         }
 
         @keyframes blink {
@@ -527,7 +525,7 @@
             const current = phrases[currentPhrase];
             
             if (isDeleting) {
-                typewriter.textContent = current.substring(0, currentChar - 1);
+                typewriter.textContent = current.substring(0, currentChar - 1) + '|';
                 currentChar--;
                 
                 if (currentChar === 0) {
@@ -537,7 +535,7 @@
                     return;
                 }
             } else {
-                typewriter.textContent = current.substring(0, currentChar + 1);
+                typewriter.textContent = current.substring(0, currentChar + 1) + '|';
                 currentChar++;
                 
                 if (currentChar === current.length) {
